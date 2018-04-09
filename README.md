@@ -25,6 +25,12 @@ This skill can be used to trigger changes in the enclosure
  * "listen animation"
  * "think animation"
 
+## TODO
+
+* use dialog files
+* more animations
+* ssh enable/disable intents
+
 ## Credits
 
 JarbasAI
