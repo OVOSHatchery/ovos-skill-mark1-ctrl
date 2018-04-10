@@ -30,6 +30,8 @@ This skill can be used to trigger changes in the enclosure
 * use dialog files
 * more animations
 * ssh enable/disable intents
+* Intents for viseme cycling / talking
+* fill eyes intents
 
 ## Credits
 
