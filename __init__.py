@@ -142,7 +142,7 @@ class EnclosureControlSkill(MycroftSkill):
         self.play_animation(self.left_right_animation)
 
     @intent_handler(IntentBuilder("EnclosureEyesBlink")
-                    .require("blink").at_least_one("eyes", "animation")
+                    .require("blink").at_least_one(["eyes", "animation"])
                     .optionally("enclosure").optionally("right")
                     .optionally("left"))
     def handle_blink_eyes(self, message):
@@ -155,7 +155,7 @@ class EnclosureControlSkill(MycroftSkill):
                 self.enclosure.eyes_blink()
 
     @intent_handler(IntentBuilder("EnclosureEyesSpin")
-                    .require("spin").at_least_one("eyes", "animation")
+                    .require("spin").at_least_one(["eyes", "animation"])
                     .optionally("enclosure"))
     def handle_spin_eyes(self, message):
         self.enclosure.eyes_spin()
@@ -173,19 +173,19 @@ class EnclosureControlSkill(MycroftSkill):
         self.enclosure.mouth_reset()
 
     @intent_handler(IntentBuilder("EnclosureMouthSmile")
-                    .require("smile").at_least_one("animation", "mouth")
+                    .require("smile").at_least_one(["animation", "mouth"])
                     .optionally("enclosure"))
     def handle_enclosure_smile(self, message):
         self.enclosure.mouth_smile()
 
     @intent_handler(IntentBuilder("EnclosureMouthListen")
-                    .require("listen").at_least_one("animation", "mouth")
+                    .require("listen").at_least_one(["animation", "mouth"])
                     .optionally("enclosure"))
     def handle_enclosure_listen(self, message):
         self.enclosure.mouth_listen()
 
     @intent_handler(IntentBuilder("EnclosureMouthThink")
-                    .require("think").at_least_one("animation", "mouth")
+                    .require("think").at_least_one(["animation", "mouth"])
                     .optionally("enclosure"))
     def handle_enclosure_think(self, message):
         self.enclosure.mouth_think()
