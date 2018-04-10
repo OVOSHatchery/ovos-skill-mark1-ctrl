@@ -186,7 +186,7 @@ class EnclosureControlSkill(MycroftSkill):
             if "left" in message.data:
                 self.enclosure.eyes_blink("l")
             else:
-                self.enclosure.eyes_blink()
+                self.enclosure.eyes_blink("b")
         self.speak("so this is what it feels like having low F P S")
 
     @intent_handler(IntentBuilder("EnclosureEyesSpin")
