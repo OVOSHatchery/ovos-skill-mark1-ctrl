@@ -1,13 +1,14 @@
-from adapt.intent import IntentBuilder
-from mycroft import MycroftSkill, intent_handler
-from threading import Thread
-import time
 import random
+import time
+from threading import Thread
+
+from ovos_utils.intents import IntentBuilder
+from ovos_workshop.decorators import intent_handler
+from ovos_workshop.skills import OVOSSkill
 
 
-class EnclosureControlSkill(MycroftSkill):
-    def __init__(self):
-        MycroftSkill.__init__(self)
+class EnclosureControlSkill(OVOSSkill):
+    def initialize(self):
         self.thread = None
         self.playing = False
         self.animations = []
@@ -40,10 +41,10 @@ class EnclosureControlSkill(MycroftSkill):
     @property
     def up_down_animation(self):
         return [
-                self.animate(2, 6, self.enclosure.eyes_look, "d"),
-                self.animate(4, 6, self.enclosure.eyes_look, "u"),
+            self.animate(2, 6, self.enclosure.eyes_look, "d"),
+            self.animate(4, 6, self.enclosure.eyes_look, "u"),
 
-                ]
+        ]
 
     @property
     def left_right_animation(self):
@@ -120,7 +121,7 @@ class EnclosureControlSkill(MycroftSkill):
                     .require("perform").require("system").require("reboot"))
     def handle_system_reboot(self, message):
         self.speak("rebooting")
-        self.emitter.emit(message.reply("system.reboot", {}))
+        self.bus.emit(message.reply("system.reboot", {}))
 
     @intent_handler(IntentBuilder("SystemUnmute")
                     .require("system").require("unmute"))
@@ -246,8 +247,4 @@ class EnclosureControlSkill(MycroftSkill):
             self.thread.join(1)
             self.enclosure.activate_mouth_events()
             self.enclosure.eyes_reset()
-
-
-def create_skill():
-    return EnclosureControlSkill()
-
+            return True

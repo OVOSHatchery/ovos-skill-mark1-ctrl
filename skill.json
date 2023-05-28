@@ -1,0 +1,18 @@
+{
+    "skill_id": "skill-enclosure-ctrl",
+    "requirements": {
+        "python": [],
+        "system": {},
+        "skill": []
+    },
+    "url": "https://github.com/JarbasSkills/skill-enclosure-ctrl.git",
+    "authorname": "JarbasSkills",
+    "skillname": "skill-enclosure-ctrl",
+    "branch": "dev",
+    "license": "mit",
+    "examples": [],
+    "credits": [
+        "JarbasAI"
+    ],
+    "foldername": "skill-enclosure-ctrl"
+}
