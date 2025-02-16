@@ -1,0 +1,59 @@
+{
+    "error.set.color.dialog": [
+        "Tyv\u00e4rr, ett fel intr\u00e4ffade n\u00e4r jag skulle st\u00e4lla in f\u00e4rgen",
+        "Det verkar som ett fel intr\u00e4ffade under inst\u00e4llning av f\u00e4rg"
+    ],
+    "color.not.found.dialog": [
+        "Ledsen men den f\u00e4rgen \u00e4r inte valbar. F\u00f6rs\u00f6k be mig om en anpassad \u00f6gonf\u00e4rg.",
+        "Jag har inte den f\u00e4rgen tillg\u00e4nglig, men jag kan st\u00e4lla in anpassade \u00f6gonf\u00e4rger.",
+        "Mina \u00f6gon kan inte bli den f\u00e4rgen. Du kan kanske be mig st\u00e4lla in en anpassad \u00f6gonf\u00e4rg."
+    ],
+    "brightness.error.dialog": [
+        "Jag f\u00f6rst\u00e5r inte ljusstyrkev\u00e4rdet, ge mig ett v\u00e4rde mellan 0 och 100 procent."
+    ],
+    "color.need.dialog": [
+        "Vilken f\u00e4rg vill du anv\u00e4nda",
+        "vilken f\u00e4rg vill du att mina \u00f6gon ska vara?",
+        "S\u00e4g en f\u00e4rg att prova."
+    ],
+    "brightness.set.dialog": [
+        "Okej, s\u00e4tter ljusstyrkan till {val}.",
+        "L\u00e5ter fint, s\u00e4tter ljusstyrkan till {val}"
+    ],
+    "set.custom.color.dialog": [
+        "Min hj\u00e4rna \u00e4r kopplad f\u00f6r att f\u00f6rst\u00e5 f\u00e4rger i R G B."
+    ],
+    "brightness.not.found.dialog": [
+        "S\u00e4g ljusniv\u00e5 i procent f\u00f6r mitt ansikte",
+        "Vilken ljusstyrkeniv\u00e5 eller procentsats \u00f6nskas?"
+    ],
+    "error.rgbvalue.dialog": [
+        "Jag beh\u00f6ver ett tal mellan 0 och 255",
+        "V\u00e4rdet m\u00e5stevara mellan 0 och 255"
+    ],
+    "get.g.value.dialog": [
+        "Nu beh\u00f6ver jag ett v\u00e4rde f\u00f6r gr\u00f6n",
+        "H\u00e4r n\u00e4st beh\u00f6ver jag det \u00f6nskade gr\u00f6nv\u00e4rdet"
+    ],
+    "set.color.success.dialog": [
+        "Coolt. Kolla in mina \u00f6gon.",
+        "Okey, Ser jag b\u00e4ttre ut nu?",
+        "Det var en bra f\u00e4rg. Kolla in mig nu."
+    ],
+    "get.r.value.dialog": [
+        "Var v\u00e4nlig och ange ett v\u00e4rde mellan 0 och 255 f\u00f6r den r\u00f6da delen",
+        "Ange ett v\u00e4rde mellan 0 och 255 f\u00f6r r\u00f6d"
+    ],
+    "color.not.exist.dialog": [
+        "Jag k\u00e4nner inte till den f\u00e4rgen. Om du kan R G B v\u00e4rdet kan du s\u00e4ga 's\u00e4tt en anpassad \u00f6gonf\u00e4rg'",
+        "Det \u00e4r ingen f\u00e4rg jag \u00e4r bekant med."
+    ],
+    "brightness.not.found.final.dialog": [
+        "Jag \u00e4r ledsen, jag f\u00f6rst\u00e5r inte den ljusstyrkan",
+        "Jag f\u00f6rst\u00e5r bara saker som, 'full' eller 50 procent"
+    ],
+    "get.b.value.dialog": [
+        "N\u00e4stan klar nu. Vilket bl\u00e5-v\u00e4rde?",
+        "Ett sista tal mellan 0 och 255 f\u00f6r bl\u00e5tt"
+    ]
+}

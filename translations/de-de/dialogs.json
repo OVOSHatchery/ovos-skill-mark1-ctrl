@@ -1,0 +1,59 @@
+{
+    "error.set.color.dialog": [
+        "Entschuldigung, es gab einen Fehler mit dem Einstellen der Farbe.",
+        "Es gab einen Fehler beim Setzen der Farbe."
+    ],
+    "color.not.found.dialog": [
+        "Entschuldigung, diese Farbe steht nicht zur Auswahl. Bitte mich eine benutzerdefinierte Augenfarbe zu setzen.",
+        "Ich habe diese Farbe nicht verf\u00fcgbar, aber ich kann benutzerdefinierte Augenfarben setzen.",
+        "Meine Augen k\u00f6nnen nicht diese Farbe annehmen. Vielleicht solltest Du mich nach einer benutzerdefinierte Farbe fragen."
+    ],
+    "brightness.error.dialog": [
+        "Ich verstehe diese Helligkeitsangabe nicht, gib mir einen Wert zwischen 0 und 100 Prozent."
+    ],
+    "color.need.dialog": [
+        "Welche Farbe sollen meine Augen haben?",
+        "Welche Farbe m\u00f6chtest Du f\u00fcr meine Augen?",
+        "Nenne eine Farbe zum ausprobieren."
+    ],
+    "brightness.set.dialog": [
+        "Okay, setze Helligkeit auf {val}.",
+        "Klingt gut, setze Helligkeit auf {val}"
+    ],
+    "set.custom.color.dialog": [
+        "Mein Gehirn ist verdrahtet um Farben in R G B zu verstehen."
+    ],
+    "brightness.not.found.dialog": [
+        "Nenne mir die Helligkeit f\u00fcr mein Gesicht in Prozent oder als Stufe",
+        "Welche Helligkeitswert oder Prozentsatz w\u00fcnscht Du?"
+    ],
+    "error.rgbvalue.dialog": [
+        "Ich ben\u00f6tige eine Zahl zwischen 0 und 255",
+        "Der Wert muss zwischen 0 und 255 sein"
+    ],
+    "get.g.value.dialog": [
+        "Jetzt ben\u00f6tige ich noch einen Wert f\u00fcr gr\u00fcn",
+        "Als n\u00e4chstes brauche ich den Gr\u00fcnwert"
+    ],
+    "set.color.success.dialog": [
+        "Cool. Schau dir meine Augen an.",
+        "Okay. Sehe ich jetzt besser aus?",
+        "Das ist eine gute Farbe. Schau mich nun an."
+    ],
+    "get.r.value.dialog": [
+        "Bitte gib mir einen Wert zwischen 0 und 255 f\u00fcr den Rotanteil",
+        "Nenne mir einen Wert von 0 bis 255 f\u00fcr Rot"
+    ],
+    "color.not.exist.dialog": [
+        "Ich kenne diese Farbe nicht.  Wenn Du die R G B Werte wei\u00dft sage 'set benutzerdefinierte Augenfarbe'.",
+        "Das ist keine Farbe mit der ich vertraut bin."
+    ],
+    "brightness.not.found.final.dialog": [
+        "Entschuldigung, ich verstehe diesen Helligkeitswert nicht.",
+        "ich verstehe nur sachen wie, 'voll' oder 50%"
+    ],
+    "get.b.value.dialog": [
+        "Fast fertig.  Was ist mit dem Blauwert?",
+        "Ein letzter Wert zwischen 0 und 255 f\u00fcr blau"
+    ]
+}

@@ -1,0 +1,59 @@
+{
+    "error.set.color.dialog": [
+        "D\u00e9sol\u00e9, il y a eu une erreur pendant le r\u00e9glage de couleur.",
+        "On dirait qu'il y a eu une erreur pendant le r\u00e9glage de la couleur."
+    ],
+    "color.not.found.dialog": [
+        "D\u00e9sol\u00e9, je n'ai pas cette couleur en option. Essayez de me demander une couleur d'yeux personnalis\u00e9e.",
+        "Cette couleur n'est pas disponible, mais je peux personnaliser la couleur d'yeux.",
+        "Mes yeux ne peuvent pas devenir de cette couleur. Peut-\u00eatre devriez-vous d\u00e9finir une couleur d'yeux personnalis\u00e9e."
+    ],
+    "brightness.error.dialog": [
+        "Je ne comprend pas cette valeur, merci de me donner une valeur de luminosit\u00e9 entre 0 et 100 pourcent. "
+    ],
+    "color.need.dialog": [
+        "Quelle couleur voudriez-vous utiliser ?",
+        "De quelle couleur voudriez-vous que mes yeux soient ?",
+        "Dites une couleur pour voir."
+    ],
+    "brightness.set.dialog": [
+        "OK, r\u00e9glage de la luminosit\u00e9 sur {val}.",
+        "Compris, je r\u00e8gle la luminosit\u00e9 sur {val}"
+    ],
+    "set.custom.color.dialog": [
+        "Mon cerveau est cabl\u00e9 pour comprendre les couleurs en RVB."
+    ],
+    "brightness.not.found.dialog": [
+        "Donne-moi un pourcentage de luminosit\u00e9 pour mon visage",
+        "Quel pourcentage ou niveau de luminosit\u00e9 aimerai-tu ?"
+    ],
+    "error.rgbvalue.dialog": [
+        "J'ai besoin d'un nombre entre 0 et 255",
+        "La valeur doit \u00eatre comprise entre 0 et 255"
+    ],
+    "get.g.value.dialog": [
+        "Maintenant j'ai besoin d'une autre valeur pour le vert",
+        "Ensuite j'ai besoin de la valeur du vert"
+    ],
+    "set.color.success.dialog": [
+        "Super. V\u00e9rifiez mes yeux.",
+        "Voil\u00e0. J'ai meilleure mine, maintenant ?",
+        "C'est une bonne couleur. Regardez moi."
+    ],
+    "get.r.value.dialog": [
+        "SVP donnez moi une valeur entre 0 et 255 pour la composante rouge",
+        "Dites moi une valeur entre 0 et 255 pour le rouge"
+    ],
+    "color.not.exist.dialog": [
+        "Je ne connais pas cette couleur. Si vous en connaissez les valeurs R G B vous pouvez dire 'd\u00e9finir une couleur d'yeux personnalis\u00e9e'",
+        "C'est une couleur avec laquelle je ne suis pas familier."
+    ],
+    "brightness.not.found.final.dialog": [
+        "D\u00e9sol\u00e9, je ne comprend pas ce niveau.",
+        "Je comprends les expressions comme \"\u00e0 fond\", \"bas\" ou 50%."
+    ],
+    "get.b.value.dialog": [
+        "Presque fini. Quelle valeur pour le bleu ?",
+        "On dernier nombre pour le bleu de 0 \u00e0 255"
+    ]
+}

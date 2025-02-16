@@ -1,0 +1,59 @@
+{
+    "error.set.color.dialog": [
+        "Ho sento, hi ha hagut un error en establir el color.",
+        "Sembla que he tingut un error en intentar establir el color."
+    ],
+    "color.not.found.dialog": [
+        "Aquest color no \u00e9s una opci\u00f3. Intenteu-ho demanant-me que defineixi un color d'ull personalitzat.",
+        "No tinc aquest color disponible, per\u00f2 puc establir colors d'ulls personalitzats.",
+        "Els meus ulls no poden convertir-se en aquest color. Potser m'haur\u00edeu de demanar que estableixi un color d'ull personalitzat."
+    ],
+    "brightness.error.dialog": [
+        "No entenc aquest valor de brillantor, doneu-me un valor de brillantor entre el 0 i el 100 per cent."
+    ],
+    "color.need.dialog": [
+        "Quin color voleu utilitzar?",
+        "Quin color voleu que siguin els meus ulls?",
+        "Poseu un color per provar."
+    ],
+    "brightness.set.dialog": [
+        "Ok, estableixo la brillantor a {val}.",
+        "D'acord, establint la brillantor a {val}"
+    ],
+    "set.custom.color.dialog": [
+        "El meu cervell est\u00e0 connectat per entendre els colors de R G B."
+    ],
+    "brightness.not.found.dialog": [
+        "Digueu-me un percentatge o un nivell de brillantor per a la meva cara",
+        "Quin nivell o percentatge de brillantor voleu?"
+    ],
+    "error.rgbvalue.dialog": [
+        "Necessito un n\u00famero entre 0 i 255",
+        "El valor ha d'estar entre 0 i 255"
+    ],
+    "get.g.value.dialog": [
+        "Ara necessito un altre valor per al verd",
+        "Tot seguit necessito el valor verd"
+    ],
+    "set.color.success.dialog": [
+        "Genial. Mireu els meus ulls.",
+        "D'acord. Ara tinc millor aspecte?",
+        "\u00c9s un bon color. Mireu-m ara."
+    ],
+    "get.r.value.dialog": [
+        "Doneu-me un valor entre 0 i 255 per al component vermell",
+        "Digueu-me un valor de 0 a 255 per al vermell"
+    ],
+    "color.not.exist.dialog": [
+        "No conec aquest color. Si en coneixeu els valors R G B podeu dir \"definir un color d'ulls personalitzat\".",
+        "No \u00e9s un color que conec."
+    ],
+    "brightness.not.found.final.dialog": [
+        "Ho sento, no entenc aquesta brillantor.",
+        "Nom\u00e9s entenc expressions com \"ple\" o 50%"
+    ],
+    "get.b.value.dialog": [
+        "Gaireb\u00e9 finit. Qu\u00e8 hi ha del valor blau?",
+        "Un \u00faltim n\u00famero entre 0 i 255 per al blau"
+    ]
+}

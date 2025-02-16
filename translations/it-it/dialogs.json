@@ -1,0 +1,59 @@
+{
+    "error.set.color.dialog": [
+        "Spiacente, si \u00e8 verificato un errore durante l'impostazione del colore.",
+        "Sembra che abbia avuto un errore nel tentativo di impostare il colore."
+    ],
+    "color.not.found.dialog": [
+        "Mi spiace, questo colore non \u00e8 un'opzione. Prova a chiedermi di impostare un colore personalizzato per gli occhi.",
+        "Non ho questo colore disponibile, ma posso dare un colore personalizzato ai miei occhi.",
+        "I miei occhi non possono diventare di quel colore. Forse dovresti chiedermi di impostare un colore personalizzato."
+    ],
+    "brightness.error.dialog": [
+        "Non capisco il valore di luminosit\u00e0, dammi un valore di luminosit\u00e0 fra 0 e 100 percento."
+    ],
+    "color.need.dialog": [
+        "Che colore vuoi usare?",
+        "Di che colore vuoi che siano i miei occhi?",
+        "D\u00ec un colore per provare."
+    ],
+    "brightness.set.dialog": [
+        "Ok, imposto la luminosit\u00e0 su {val}.",
+        "Sembra buono, imposto la luminosit\u00e0 su {val}"
+    ],
+    "set.custom.color.dialog": [
+        "Il mio cervello \u00e8 cablato per capire i colori in R G B."
+    ],
+    "brightness.not.found.dialog": [
+        "Dimmi la percentuale di luminosit\u00e0 per la mia faccia",
+        "Quale livello di luminosit\u00e0 o percentuale vorresti?"
+    ],
+    "error.rgbvalue.dialog": [
+        "Ho bisogno di un numero compreso tra 0 e 255",
+        "Il valore deve essere compreso tra 0 e 255"
+    ],
+    "get.g.value.dialog": [
+        "Ora ho bisogno di un altro valore per il verde",
+        "Successivamente ho bisogno del valore verde"
+    ],
+    "set.color.success.dialog": [
+        "Bene! Guarda i miei occhi.",
+        "Va bene. Ti sembro meglio ora?",
+        "\u00c8 un bel colore. Guardami adesso."
+    ],
+    "get.r.value.dialog": [
+        "Per favore dammi un valore tra 0 e 255 per la componente rossa",
+        "Dimmi un valore da 0 a 255 per il rosso"
+    ],
+    "color.not.exist.dialog": [
+        "Non conosco questo colore.  Se conosci i valori R, V e B puoi dire 'imposta un colore personalizzato per gli occhi'.",
+        "Non \u00e8 un colore che conosco."
+    ],
+    "brightness.not.found.final.dialog": [
+        "Scusa, non capisco quella luminosit\u00e0.",
+        "Capisco solo cose come, 'pieno' o 50%"
+    ],
+    "get.b.value.dialog": [
+        "Ci siamo quasi.  Quale valore al blu?",
+        "Un ultimo numero tra 0 e 255 per il blue"
+    ]
+}

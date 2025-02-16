@@ -1,0 +1,59 @@
+{
+    "error.set.color.dialog": [
+        "Sorry, het instellen van de kleur is fout gegaan.",
+        "Het lijkt erop dat ik een fout kreeg bij het instellen van de kleur."
+    ],
+    "color.not.found.dialog": [
+        "Sorry, die kleur is niet mogelijk. Probeer me te vragen een aangepaste kleur te gebruiken.",
+        "Die kleur heb ik niet beschikbaar, maar ik kan aangepaste oogkleuren gebruiken.",
+        "Mijn ogen kunnen niet in die kleur veranderen. Misschien zou je me moeten vragen een aangepaste oogkleur te gebruiken."
+    ],
+    "brightness.error.dialog": [
+        "I begrijp die lichtsterkte waarde niet, geef me een lichtsterkte niveau van 0 tot 100 procent."
+    ],
+    "color.need.dialog": [
+        "Welke kleur wil je gebruiken?",
+        "Welke kleur wil je dat mijn ogen hebben?",
+        "Noem een kleur om het uit te proberen."
+    ],
+    "brightness.set.dialog": [
+        "Oke, zet helderheid naar {val}.",
+        "Klinkt goed, zet helderheid naar {val}"
+    ],
+    "set.custom.color.dialog": [
+        "Mijn brein is ingesteld om R G B kleuren te begrijpen."
+    ],
+    "brightness.not.found.dialog": [
+        "Vertel me een helderheidspercentage of niveau voor mijn gezicht",
+        "Wat voor helderheidsniveau of percentage wil je?"
+    ],
+    "error.rgbvalue.dialog": [
+        "Ik heb een nummer tussen 0 en 255 nodig",
+        "De waarde moet tussen 0 en 255 (zijn|liggen)"
+    ],
+    "get.g.value.dialog": [
+        "Nu heb ik nog een waarde voor groen nodig.",
+        "Als volgende heb ik een groen waarde nodig."
+    ],
+    "set.color.success.dialog": [
+        "Te gek. Kijk eens naar mijn ogen.",
+        "Oke. Zie ik er zo beter uit?",
+        "Dat is een goede kleur. Kijk nu eens naar mij."
+    ],
+    "get.r.value.dialog": [
+        "Geef me alsjeblieft een waarde tussen 0 en 255 voor de rood component.",
+        "Geef me een waarde tussen 0 en 255 voor rood."
+    ],
+    "color.not.exist.dialog": [
+        "Die kleur ken ik niet. Als je de R G B waardes kent dan kun je zeggen 'gebruik een aangepaste oogkleur'.",
+        "Dat is geen kleur die mij bekent is."
+    ],
+    "brightness.not.found.final.dialog": [
+        "Sorry, ik begrijp die helderheid niet.",
+        "Ik begrijp alleen dingen zoals, 'vol' of 50%"
+    ],
+    "get.b.value.dialog": [
+        "Bijna klaar. Wat doen we met de blauw waarde?",
+        "Een laatste waarde tussen 0 en 255 voor blauw."
+    ]
+}

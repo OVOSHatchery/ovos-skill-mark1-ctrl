@@ -1,0 +1,59 @@
+{
+    "error.set.color.dialog": [
+        "Desculpe, houve um erro ao definir a cor",
+        "Parece que eu tive um erro tentando definir a cor"
+    ],
+    "color.not.found.dialog": [
+        "Desculpe, essa cor n\u00e3o \u00e9 uma op\u00e7\u00e3o. Tente me pedir para definir uma cor de olhos personalizada.",
+        "Eu n\u00e3o tenho essa cor dispon\u00edvel, mas eu posso definir cor de olhos personalizada.",
+        "Meus olhos n\u00e3o podem ficar dessa cor. Talvez devesse me pedir para definir uma cor de olhos personalizada."
+    ],
+    "brightness.error.dialog": [
+        "Eu n\u00e3o entendo esse valor de brilho, me d\u00ea um valor de brilho entre 0 e 100 por cento."
+    ],
+    "color.need.dialog": [
+        "Qual a cor que voc\u00ea gostaria de usar?",
+        "Qual cor voc\u00ea gostaria que meus olhos fossem?",
+        "Diga o nome de uma cor para testar."
+    ],
+    "brightness.set.dialog": [
+        "Ok, definindo brilho para {val}.",
+        "Parece bom, definindo brilho para {val}"
+    ],
+    "set.custom.color.dialog": [
+        "Meu c\u00e9rebro est\u00e1 projetado para entender cores em R G B."
+    ],
+    "brightness.not.found.dialog": [
+        "Diga-me uma porcentagem ou n\u00edvel de brilho para meu rosto",
+        "Qual o n\u00edvel ou porcentagem de brilho que voc\u00ea gostaria?"
+    ],
+    "error.rgbvalue.dialog": [
+        "Eu preciso de um n\u00famero entre 0 e 255",
+        "O valor deve estar entre 0 e 255"
+    ],
+    "get.g.value.dialog": [
+        "Agora eu preciso de outro valor para o verde",
+        "Em seguida eu preciso do valor para o verde"
+    ],
+    "set.color.success.dialog": [
+        "Legal. Veja os meus olhos.",
+        "Ok. Eu pare\u00e7o melhor agora?",
+        "Essa \u00e9 uma boa cor. Me olhe agora."
+    ],
+    "get.r.value.dialog": [
+        "Por favor me d\u00ea um valor entre 0 e 255 para a componente vermelho",
+        "Me diga um valor entre 0 e 255 para o vermelho"
+    ],
+    "color.not.exist.dialog": [
+        "Eu n\u00e3o conhe\u00e7o essa cor. Se voc\u00ea souber os valores R G H, voc\u00ea pode dizer \"definir uma cor de olhos personalizada\"",
+        "Essa n\u00e3o \u00e9 uma cor com que eu esteja familiarizado."
+    ],
+    "brightness.not.found.final.dialog": [
+        "Desculpe, eu n\u00e3o entendi esse n\u00edvel de brilho.",
+        "Eu entendo apenas coisas como, 'm\u00e1ximo' ou 50%"
+    ],
+    "get.b.value.dialog": [
+        "Quase l\u00e1. Quanto ser\u00e1 o valor azul?",
+        "Um \u00faltimo n\u00famero entre 0 e 255 para o azul"
+    ]
+}

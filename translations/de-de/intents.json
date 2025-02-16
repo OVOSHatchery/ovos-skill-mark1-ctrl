@@ -1,0 +1,29 @@
+{
+    "eye.color.intent": [
+        "(\u00e4ndere|setze) (die|deine|) (Auge|Augen) (Farbe|Farben|) auf {color}",
+        "(\u00e4ndere|setze) (Auge|Augen) (Farbe|Farben|) auf {color}",
+        "(\u00e4ndere|setze) Augen (Farbe|Farben) auf {color}",
+        "(\u00e4ndere|setze) (deine|) Augen in (eine|einen|) {color} (Farbe|Farbton|)",
+        "(\u00e4ndere|setze) (Auge|Augen) auf (eine|einen) {color} Farbe",
+        "(\u00e4ndere|setze) Augen (Farbe|Farben)"
+    ],
+    "brightness.intent": [
+        "dimme (die|deine) Augen auf {brightness} (Prozent|)",
+        "dimme runter auf {brightness} (Prozent|)",
+        "verringere die (Helligkeit|Beleuchtung) deiner Augen auf {brightness} (Prozent|)",
+        "stelle (die|) (Helligkeit|Beleuchtung) (runter|rauf) auf {brightness} (Prozent|)",
+        "drehe (die|) (Helligkeit|Beleuchtung) (runter|rauf) auf {brightness} (Prozent|)",
+        "(ein wenig|) heller auf {brightness} (Prozent|)",
+        "(\u00e4ndere|setze|wechsele) die (Augen|) (Helligkeit|Beleuchtung) auf {brightness} (Prozent|)",
+        "(\u00e4ndere|setze|wechsele) (die|deine) (Augen|) (Helligkeit|Beleuchtung) (Stufe|) auf {brightness} (Prozent|)",
+        "(\u00e4ndere|setze|wechsele) (die|deine) (Augen|) (Helligkeit|Beleuchtung) (Stufe|)",
+        "Du bist (zu|) (hell|dunkel)",
+        "Du bist (zu|) (hell|dunkel)",
+        "etwas heller",
+        "etwas dunkler"
+    ],
+    "custom.eye.color.intent": [
+        "setze benutzerdefinierte (Farbe|Farben)",
+        "(setze|\u00e4ndere) auf benutzerdefinierte (Augenfarbe|Augenfarben)"
+    ]
+}

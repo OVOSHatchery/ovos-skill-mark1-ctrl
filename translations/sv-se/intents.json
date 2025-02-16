@@ -1,0 +1,29 @@
+{
+    "eye.color.intent": [
+        "(byt|s\u00e4tt|st\u00e4ll in) (dina|din|) (\u00f6gonf\u00e4rg|\u00f6gonf\u00e4rger) till {color}",
+        "(byt|s\u00e4tt|st\u00e4ll in) (\u00f6gonf\u00e4rg|\u00f6gonf\u00e4rgen) till {color}",
+        "(byt|s\u00e4tt|st\u00e4ll in) (\u00f6gonf\u00e4rg|\u00f6gonf\u00e4rgen) till n\u00e5nting (som|liknande) {color}",
+        "(byt|s\u00e4tt|st\u00e4ll in) (dina|) (\u00f6gon|\u00f6gonen) till (en|) {color} (f\u00e4rg|)",
+        "(byt|s\u00e4tt|st\u00e4ll in) (\u00f6gonen|\u00f6gonf\u00e4rgen) till en {color} f\u00e4rg",
+        "(byt|s\u00e4tt|st\u00e4ll in) (\u00f6gonf\u00e4rg|\u00f6gonf\u00e4rgen)"
+    ],
+    "brightness.intent": [
+        "dimma (dina|) (\u00f6gon|\u00f6gonen) till {brightness} (percent|)",
+        "dimma ner till {brightness} (percent|)",
+        "s\u00e4nk ljusstyrkan p\u00e5 dina \u00f6gon till {brightness} (percent|)",
+        "(s\u00e4tt|st\u00e4ll) (ner|upp) (ljusstyrkan|belysningen) till {brightness} (percent|)",
+        "(s\u00e4tt|st\u00e4ll) (ner|upp) (ljusstyrkan|belysningen) till {brightness} (percent|)",
+        "\u00f6ka ljusstyrkan (lite|) till {brightness} (procent|)",
+        "(\u00e4ndra|st\u00e4ll in|byt) till {brightness} (percent|)",
+        "(\u00e4ndra|st\u00e4ll in| byt) (ljus|ljushet|styrka|styrkeniv\u00e5) (p\u00e5 dina \u00f6gon|p\u00e5 \u00f6gonen|) till {brightness} (procent|)",
+        "(byt|s\u00e4tt) (ljusstyrkan|ljusheten|styrkan|ljusniv\u00e5n) p\u00e5 dina \u00f6gon",
+        "du \u00e4r f\u00f6r (ljus|m\u00f6rk)",
+        "du \u00e4r f\u00f6r (ljus|m\u00f6rk)",
+        "bli ljusare",
+        "s\u00e4nk ljusstyrkan (en aning|lite)"
+    ],
+    "custom.eye.color.intent": [
+        "(st\u00e4ll in|s\u00e4tt) anpassad \u00f6gonf\u00e4rg",
+        "(st\u00e4ll in| byt till) en anpassad \u00f6gonf\u00e4rg"
+    ]
+}

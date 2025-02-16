@@ -1,0 +1,29 @@
+{
+    "eye.color.intent": [
+        "(changer|r\u00e9gler) (la|votre) couleur (d'yeux|des yeux) \u00e0 {color}",
+        "(changer|r\u00e9gler) la couleur (d'yeux|des yeux) \u00e0 {color}",
+        "(changer|r\u00e9gler) la couleur des yeux \u00e0 une valeur {color}",
+        "(changer|d\u00e9finir|fix\u00e9) la couleur des yeux en {color}",
+        "(changer|d\u00e9finir|fix\u00e9) la couleur des yeux en {color}",
+        "(changer|d\u00e9finir|fix\u00e9) (la couleur|les couleurs) des yeux"
+    ],
+    "brightness.intent": [
+        "r\u00e9duit (the|your) yeux sur {brightness} (percent|)",
+        "r\u00e9duit sur {brightness} (percent|)",
+        "baisse la (brightness|illumination) de tes yeux sur {brightness} (percent|)",
+        "r\u00e8gle (the|) (brightness|illumination) (down|up) sur {brightness} (percent|)",
+        "r\u00e8gle (down|up) (the|) (brightness|illumination) sur {brightness} (percent|)",
+        "Augmente (a bit|) sur {brightness} (percent|)",
+        "(change|set|switch) sur {brightness} (percent|) (eye|) (brightness|illumination)",
+        "(change|set|switch) (the|your) (eye|) (brightness|illumination) (level|) sur {brightness} (percent|)",
+        "(change|set|switch) (the|your) (eye|) (brightness|illumination) (level|)",
+        "C'est (too|) (bright|dim)",
+        "C'est (too|) (bright|dim)",
+        "\u00e9claire le plus",
+        "r\u00e9duit le un peu"
+    ],
+    "custom.eye.color.intent": [
+        "Personnalise les yeux en (couleur|couleurs)",
+        "(r\u00e9gler|modifier) sur une couleur des yeux personnalis\u00e9e"
+    ]
+}

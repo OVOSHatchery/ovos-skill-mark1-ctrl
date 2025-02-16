@@ -1,0 +1,29 @@
+{
+    "eye.color.intent": [
+        "(cambiar|definir) (a|t\u00faa|as|t\u00faas) (cor|cores) de (ollo|ollos) para {color}",
+        "(cambiar|definir) (a|as|)(cor|cores) de (ollo|ollos) para {color}",
+        "(cambiar|definir) (a|as) (cor|cores) dos ollos para algo (como|) {color}",
+        "(cambiar|definir) (os teus|) ollos para (unha|) (cor|) {color}",
+        "(cambiar|definir) (ollo|ollos) para (unha|) cor {color}",
+        "(cambiar|definir) (cor|cores) dos ollos"
+    ],
+    "brightness.intent": [
+        "escurece (os teus) ollos ata o {brightness} (porcento|)",
+        "escurecer ata o {brightness} (porcento|)",
+        "(reduzace) (o|a) (brillo|iluminaci\u00f3n) dos teus ollos ata o {brightness} (porcento|) ",
+        "cambia (o|a) (brillo|iluminaci\u00f3n) ata o {brightness} (porcento|)",
+        "cambia (o|a) (brillo|iluminaci\u00f3n) ata o {brightness} (porcento|)",
+        "ilumina (un pouco|) ata o {brightness} (porcento|)",
+        "(cambiar|establece) ata o {brightness} (porcento|) (o|a) (brillo|iluminaci\u00f3n) (dos|) (ollos|)",
+        "(cambiar|establecer) (o teu) (nivel) de (brillo|iluminaci\u00f3n) do (ollo|) ata o {brightness} (por cento|)",
+        "(cambiar|establecer) (o teu) (nivel) de (brillo|iluminaci\u00f3n) do (ollo|) ata o (nivel|)",
+        "est\u00e1s (moi|) (brillante|escuro)",
+        "est\u00e1s con brillo (moi|) (fraco|forte)",
+        "aumenta o brillo",
+        "dimin\u00fae o brillo"
+    ],
+    "custom.eye.color.intent": [
+        "definir (cor|cores) (de|dos) ollos (personalizada|s)",
+        "(definir|cambiar) para (unha|s) (cor|cores) de ollos personalizada"
+    ]
+}

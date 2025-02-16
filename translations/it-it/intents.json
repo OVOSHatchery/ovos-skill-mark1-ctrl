@@ -1,0 +1,29 @@
+{
+    "eye.color.intent": [
+        "(cambia|imposta) (colore|colori|) (degli|tuo|tuoi|) (occhio|occhi) in {color}",
+        "(cambia|imposta) (colore|colori) (occhio|occhi) in {color}",
+        "(cambia|imposta) (il|tuo|i) (colore|colori) degli occhi a qualcosa {color}",
+        "(cambia|imposta) (i tuoi|gli|) occhi a (un) (colore) {color}",
+        "(cambia|imposta) (occhio|occhi) a (un) (colore) {color}",
+        "(cambia|imposta) (colore|colori) occhio"
+    ],
+    "brightness.intent": [
+        "oscura (gli|i tuoi) occhi al {brightness} (percento|)",
+        "abbassa luminosit\u00e0 {brightness} (percento|)",
+        "abbassa la (brillantezza|luminosit\u00e0) dei tuoi occhi del {brightness} (percento|)",
+        "(abbassa|aumenta) (|la |l')(luminosit\u00e0|illuminazione) (ad|al |all'){brightness} (|percento)",
+        "(abbassa|aumenta) (la| ) (luminosit\u00e0|illuminazione) al {brightness} percento",
+        "aumenta la luminosit\u00e0 al {brightness} per cento",
+        "(diminuisci|aumenta|cambia) (la| ) (luminosit\u00e0|illuminazione) al {brightness} percento",
+        "(modifica|cambia|imposta) (il|tuo|livello|la|di) (luminosit\u00e0|illuminazione) (degli occhi) al {brightness} (percento)",
+        "(cambia|imposta |modifica) (livello| ) (di) (luminosit\u00e0 | illuminazione) (del| tuo) (occhio |)",
+        "sei (troppo|) (luminoso|scuro)",
+        "sei (troppo|) (brillante|scuro)",
+        "illuminalo un p\u00f2",
+        "abbassalo un p\u00f2"
+    ],
+    "custom.eye.color.intent": [
+        "imposta occhio personalizzato (colore|colori)",
+        "(imposta|cambia) occhio personalizzato (colore|colori)"
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "eye.color.intent": [
+        "(mudar|definir) (a|sua|as|suas) (cor|cores) de (olho|olhos) para {color}",
+        "(mudar|definir) (a|as|)(cor|cores) de (olho|olhos) para {color}",
+        "(alterar|definir) (a|as) (cor|cores) dos olhos para algo (como|) {color}",
+        "(mudar|definir) (seus|) olhos para (uma|) (cor|) {color}",
+        "(mudar|definir) (olho|olhos) para (uma|) cor {color}",
+        "(mudar|definir) (cor|cores) dos olhos"
+    ],
+    "brightness.intent": [
+        "escure\u00e7a (os|seus) olhos para {brightness} (porcento|)",
+        "escurecer para {brightness} (porcento|)",
+        "(reduza|abaixe) (o|a) (brilho|ilumina\u00e7\u00e3o) dos seus olhos para {brightness} (porcento|) ",
+        "mude (o|a) (brilho|ilumina\u00e7\u00e3o) para {brightness} (porcento|)",
+        "mude (o|a) (brilho|ilumina\u00e7\u00e3o) para {brightness} (porcento|)",
+        "ilumine (um pouco|) para {brightness} (porcento|)",
+        "(mude|altere|chaveie) para {brightness} (porcento|) (o|a) (brilho|ilumina\u00e7\u00e3o) (dos|) (olhos|)",
+        "(mudar|definir|trocar) (o|seu) (n\u00edvel) de (brilho|ilumina\u00e7\u00e3o) do (olho|) para {brightness} (por cento|)",
+        "(mudar|definir|trocar) (o|seu) (n\u00edvel|) (de|) (brilho|ilumina\u00e7\u00e3o) (do|) (olho|) ",
+        "voc\u00ea est\u00e1 (muito|) (brilhante|escuro)",
+        "voc\u00ea est\u00e1 com brilho (muito|) (fraco|forte)",
+        "aumente o brilho",
+        "diminua um pouco"
+    ],
+    "custom.eye.color.intent": [
+        "definir (cor|cores) (de|dos) olhos personalizada",
+        "(definir|mudar) para (uma|) (cor|cores) de olhos personalizada"
+    ]
+}

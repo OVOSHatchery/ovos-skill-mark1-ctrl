@@ -1,0 +1,29 @@
+{
+    "eye.color.intent": [
+        "(canvia|estableix) (el|) color d'ulls al {color}",
+        "(canvia|estableix) el color dels ulls al {color}",
+        "(canvia|estableix) el color dels ulls a alg\u00f9 {color}",
+        "(canvia|estableix) el color dels ulls al (color|) {color}",
+        "(canvia|estableix) el color dels ulls a un (color|) {color}",
+        "(canvia|estableix) (el color|els colors) dels ulls"
+    ],
+    "brightness.intent": [
+        "atenua (la|) {brightness} de (els|) ulls al (percentatge|per cent)",
+        "atenua al {brightness} per cent",
+        "abaixa la (brillantor|il\u00b7luminaci\u00f3) dels ulls al {brightness} (per cent|)",
+        "(baixa|aumenta) (la|) (brillantor|il\u00b7luminaci\u00f3) al {brightness} (per cent|)",
+        "(baixa|aumenta) (la|) (brillantor|il\u00b7luminaci\u00f3) al {brightness} (per cent|)",
+        "il\u00b7lumina-ho (una mica|un poc|) fins al {brightness} (per cent|)",
+        "(canvia a|estableix|commuta) els ulls al {brightness} (per cent|) (de|d'|) (brillantor|il\u00b7luminaci\u00f3)",
+        "(canvia a|estableix|commuta) els ulls al {brightness} (per cent|) (nivell|) (de|d'|) (brillantor|il\u00b7luminaci\u00f3)",
+        "(canvia a|estableix|commuta) (el|) (nivell|) (de|d'|) (brillantor|il\u00b7luminaci\u00f3) dels (ulls|)",
+        "ets (massa|) (brillant|oscur)",
+        "ets (massa|) (brillant|oscur)",
+        "il\u00b7lumina ho|aumenta la brillantor",
+        "enfosqueix|atenua una mica"
+    ],
+    "custom.eye.color.intent": [
+        "estableix (color|colors) ulls personalitzat",
+        "(establir|canviar) a un color d'ulls personalitzat"
+    ]
+}

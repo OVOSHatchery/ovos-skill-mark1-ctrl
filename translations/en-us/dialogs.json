@@ -1,0 +1,62 @@
+{
+    "set.default.eye.color.dialog": [
+        "Would you like to make this your default eye color?"
+    ],
+    "error.set.color.dialog": [
+        "Sorry, there was an error setting the color.",
+        "Looks like I had an error trying to set the color."
+    ],
+    "color.not.found.dialog": [
+        "Sorry, that color is not an option. Try asking me to set a custom eye color.",
+        "I do not have that color available, but I can set custom eye colors.",
+        "My eyes cannot turn into that color. Perhaps you should ask me to set a custom eye color."
+    ],
+    "brightness.error.dialog": [
+        "I do not understand that brightness value, give me a brightness value from 0 to 100 percent."
+    ],
+    "color.need.dialog": [
+        "Which color would you like to use?",
+        "What color would you like my eyes to be?",
+        "Name a color to try."
+    ],
+    "brightness.set.dialog": [
+        "Okay, setting brightness to {val}.",
+        "Sounds good, setting brightness to {val}"
+    ],
+    "set.custom.color.dialog": [
+        "My brain is wired to understand colors in R G B."
+    ],
+    "brightness.not.found.dialog": [
+        "Tell me a brightness percentage or level for my face",
+        "What brightness level or percentage would you like?"
+    ],
+    "error.rgbvalue.dialog": [
+        "I need a number between 0 and 255",
+        "The value has to be between 0 and 255"
+    ],
+    "get.g.value.dialog": [
+        "Now I need another value for green",
+        "Next I need the green value"
+    ],
+    "set.color.success.dialog": [
+        "Cool. Check out my eyes.",
+        "Okay. Do I look better now?",
+        "That's a good color. Look at me now."
+    ],
+    "get.r.value.dialog": [
+        "Please give me a value between 0 and 255 for the red component",
+        "Tell me a value from 0 to 255 for red"
+    ],
+    "color.not.exist.dialog": [
+        "I don't know that color.  If you know the R G B values you can say 'set a custom eye color'.",
+        "That's not a color I'm familiar with."
+    ],
+    "brightness.not.found.final.dialog": [
+        "Sorry, I don't understand that brightness.",
+        "I only understand things like, 'full' or 50%"
+    ],
+    "get.b.value.dialog": [
+        "Almost there.  How about the blue value?",
+        "One last number between 0 and 255 for blue"
+    ]
+}
