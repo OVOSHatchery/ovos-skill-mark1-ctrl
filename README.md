@@ -8,15 +8,14 @@ The Mycroft Mark 1 has several unique capabilities which this Skill lets you con
 
 The Mark 1 has beautiful eyes -- and you get to pick their color!  Set them to
 a named color ("blue", "magenta", "teal", etc) or any color using RGB values.
-Please see the [color](./locale/en-us/colors.value)
-list for more options
+Please see the [ovos-color-parser](https://github.com/OpenVoiceOS/ovos-color-parser)
+for more options
 
 
 ## Examples
 
 * "Set your eye color to green"
 * "Set a custom eye color" (you'll be prompted for values)
-* "Change to low brightness"
 * "Dim to 50%"
 * "look up"
 * "look down"
