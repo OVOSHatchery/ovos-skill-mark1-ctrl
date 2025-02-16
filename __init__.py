@@ -2,7 +2,6 @@ import random
 import time
 from ast import literal_eval as parse_tuple
 from ovos_color_parser import color_from_description, sRGBAColor
-# from difflib import SequenceMatcher
 from ovos_utils import create_daemon, classproperty
 from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
@@ -31,36 +30,13 @@ def _hex_to_rgb(_hex):
         return None
 
 
-# def fuzzy_match_color(color_a, color_dict):
-#     """ fuzzy match for colors
-# 
-#         Args:
-#             color_a (str): color as string
-#             color_dict (dict): dict with colors
-#         Returns:
-#             color: color from color_dict
-#     """
-#     highest_ratio = float("-inf")
-#     _color = None
-#     for color, value in color_dict.items():
-#         s = SequenceMatcher(None, color_a, color)
-#         if s.ratio() > highest_ratio:
-#             highest_ratio = s.ratio()
-#             _color = color
-#     if highest_ratio > 0.8:
-#         return _color
-#     else:
-#         return None
-
-
 class EnclosureControlSkill(OVOSSkill):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.handle_default_eyes()
         self.thread = None
         self.playing = False
         self.animations = []
-        # self.brightness_dict = self.translate_namedvalues('brightness.levels')
-        # self.color_dict = self.translate_namedvalues('colors')
         self.add_event('mycroft.eyes.default', self.handle_default_eyes)
         self.add_event('mycroft.ready', self.handle_default_eyes)
 
@@ -358,7 +334,6 @@ class EnclosureControlSkill(OVOSSkill):
                      self.get_response('color.need'))
         if color_str:
             match = color_from_description(color_str)
-            # match = fuzzy_match_color(normalize(color_str), self.color_dict)
             if match is not None:
                 default = False
                 if self.ask_yesno('set.default.eye.color') == 'yes':
@@ -405,7 +380,6 @@ class EnclosureControlSkill(OVOSSkill):
         return _hex_to_rgb(color)
 
     def handle_default_eyes(self):
-        LOG.info(self.settings.get('default_eye_color', "NONE"))
         if self.settings.get('default_eye_color'):
             self.set_eye_color(rgb=self.settings['default_eye_color'], speak=False)
 
@@ -436,7 +410,7 @@ class EnclosureControlSkill(OVOSSkill):
 
         try:
             # Handle "full", etc.
-            name = normalize(brightness)
+            # name = normalize(brightness)
             # if name in self.brightness_dict:
             #     return self.brightness_dict[name]
 
