@@ -1,1 +1,2 @@
-ovos-color-parser
+ovos-color-parser>=0.8.1
+ovos-i2c-detection>=0.6.1

@@ -9,6 +9,7 @@ from ovos_workshop.decorators import intent_handler
 from ovos_workshop.intents import IntentBuilder
 from ovos_workshop.skills import OVOSSkill
 from ovos_bus_client.message import Message
+from ovos_i2c_detection import is_mark_1
 from threading import Thread
 
 
@@ -31,14 +32,9 @@ def _hex_to_rgb(_hex):
 
 class EnclosureControlSkill(OVOSSkill):
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.handle_default_eyes()
-        self.thread = None
-        self.playing = False
-        self.animations = []
-
-class EnclosureControlSkill(OVOSSkill):
-    def __init__(self, *args, **kwargs):
+        if not is_mark_1():
+            LOG.error("This device is not a Mark 1.  It is suggested to uninstall this skill")
+            raise NotImplementedError("Purposeful exception because not on a Mark 1 device")
         super().__init__(*args, **kwargs)
         self.thread = None
         self.playing = False
