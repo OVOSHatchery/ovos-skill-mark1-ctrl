@@ -29,11 +29,17 @@ def _hex_to_rgb(_hex):
     except Exception:
         return None
 
-
 class EnclosureControlSkill(OVOSSkill):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.handle_default_eyes()
+        self.thread = None
+        self.playing = False
+        self.animations = []
+
+class EnclosureControlSkill(OVOSSkill):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.thread = None
         self.playing = False
         self.animations = []
@@ -409,11 +415,6 @@ class EnclosureControlSkill(OVOSSkill):
         """
 
         try:
-            # Handle "full", etc.
-            # name = normalize(brightness)
-            # if name in self.brightness_dict:
-            #     return self.brightness_dict[name]
-
             if '%' in brightness:
                 brightness = brightness.replace("%", "").strip()
                 return int(brightness)
