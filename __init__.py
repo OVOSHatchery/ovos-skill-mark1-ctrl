@@ -1,11 +1,15 @@
 import random
 import time
 from ast import literal_eval as parse_tuple
-from difflib import SequenceMatcher
-from ovos_utils import create_daemon
+from ovos_color_parser import color_from_description, sRGBAColor
+# from difflib import SequenceMatcher
+from ovos_utils import create_daemon, classproperty
+from ovos_utils.log import LOG
+from ovos_utils.process_utils import RuntimeRequirements
 from ovos_workshop.decorators import intent_handler
 from ovos_workshop.intents import IntentBuilder
 from ovos_workshop.skills import OVOSSkill
+from ovos_bus_client.message import Message
 from threading import Thread
 
 
@@ -27,42 +31,51 @@ def _hex_to_rgb(_hex):
         return None
 
 
-def fuzzy_match_color(color_a, color_dict):
-    """ fuzzy match for colors
-
-        Args:
-            color_a (str): color as string
-            color_dict (dict): dict with colors
-        Returns:
-            color: color from color_dict
-    """
-    highest_ratio = float("-inf")
-    _color = None
-    for color, value in color_dict.items():
-        s = SequenceMatcher(None, color_a, color)
-        if s.ratio() > highest_ratio:
-            highest_ratio = s.ratio()
-            _color = color
-    if highest_ratio > 0.8:
-        return _color
-    else:
-        return None
+# def fuzzy_match_color(color_a, color_dict):
+#     """ fuzzy match for colors
+# 
+#         Args:
+#             color_a (str): color as string
+#             color_dict (dict): dict with colors
+#         Returns:
+#             color: color from color_dict
+#     """
+#     highest_ratio = float("-inf")
+#     _color = None
+#     for color, value in color_dict.items():
+#         s = SequenceMatcher(None, color_a, color)
+#         if s.ratio() > highest_ratio:
+#             highest_ratio = s.ratio()
+#             _color = color
+#     if highest_ratio > 0.8:
+#         return _color
+#     else:
+#         return None
 
 
 class EnclosureControlSkill(OVOSSkill):
-    def initialize(self):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.thread = None
         self.playing = False
         self.animations = []
-        self.brightness_dict = self.translate_namedvalues('brightness.levels')
-        self.color_dict = self.translate_namedvalues('colors')
+        # self.brightness_dict = self.translate_namedvalues('brightness.levels')
+        # self.color_dict = self.translate_namedvalues('colors')
         self.add_event('mycroft.eyes.default', self.handle_default_eyes)
         self.add_event('mycroft.ready', self.handle_default_eyes)
 
-        # TODO: Add OVOSSkill.register_entity_list() and use the
-        #  self.color_dict.keys() instead of duplicating data
-        self.register_entity_file('color.entity')
-
+    @classproperty
+    def runtime_requirements(self):
+        return RuntimeRequirements(internet_before_load=False,
+                                   network_before_load=False,
+                                   gui_before_load=False,
+                                   requires_internet=False,
+                                   requires_network=False,
+                                   requires_gui=False,
+                                   no_internet_fallback=True,
+                                   no_network_fallback=True,
+                                   no_gui_fallback=True)
+    
     @property
     def crazy_eyes_animation(self):
         choices = [(self.enclosure.eyes_look, "d"),
@@ -238,6 +251,7 @@ class EnclosureControlSkill(OVOSSkill):
     @intent_handler(IntentBuilder("EnclosureReset")
                     .require("reset").require("enclosure"))
     def handle_enclosure_reset(self, message):
+        self.handle_default_eyes()
         self.enclosure.eyes_reset()
         self.enclosure.mouth_reset()
         self.speak("this was fun")
@@ -270,10 +284,11 @@ class EnclosureControlSkill(OVOSSkill):
         self.speak("artificial intelligence performing artificial "
                    "stupidity, you don't see this every day")
         self.play_animation(self.crazy_eyes_animation)
+        self.enclosure.eyes_reset()
 
     #####################################################################
     # Color interactions
-    def set_eye_color(self, color=None, rgb=None, speak=True):
+    def set_eye_color(self, color=None, rgb=None, speak=True, make_default=False):
         """ Change the eye color on the faceplate, update saved setting
         """
         if color is not None:
@@ -291,6 +306,8 @@ class EnclosureControlSkill(OVOSSkill):
                 self.speak_dialog('set.color.success')
             # Update saved color
             self.settings['current_eye_color'] = [r, g, b]
+            if make_default:
+                self.settings['default_eye_color'] = [r, g, b]
         except Exception:
             self.log.debug('Bad color code: ' + str(color))
             if speak:
@@ -324,7 +341,11 @@ class EnclosureControlSkill(OVOSSkill):
             return  # cancelled
 
         custom_rgb = [r, g, b]
-        self.set_eye_color(rgb=custom_rgb)
+        
+        default = False
+        if self.ask_yesno('set.default.eye.color') == 'yes':
+            default = True
+        self.set_eye_color(rgb=custom_rgb, make_default=default)
 
     @intent_handler('eye.color.intent')
     def handle_eye_color(self, message):
@@ -336,9 +357,13 @@ class EnclosureControlSkill(OVOSSkill):
         color_str = (message.data.get('color', None) or
                      self.get_response('color.need'))
         if color_str:
-            match = fuzzy_match_color(normalize(color_str), self.color_dict)
+            match = color_from_description(color_str)
+            # match = fuzzy_match_color(normalize(color_str), self.color_dict)
             if match is not None:
-                self.set_eye_color(color=match)
+                default = False
+                if self.ask_yesno('set.default.eye.color') == 'yes':
+                    default = True
+                self.set_eye_color(color=match, make_default=default)
             else:
                 self.speak_dialog('color.not.exist')
 
@@ -356,10 +381,13 @@ class EnclosureControlSkill(OVOSSkill):
         if not color:
             return None
 
-        # check if named color in dict
+        # # check if named color is valid
         try:
-            if color.lower() in self.color_dict:
-                return _hex_to_rgb(self.color_dict[color.lower()])
+            if isinstance(color, sRGBAColor):
+                if 0 <= color.r <= 255 and 0 <= color.g <= 255 and 0 <= color.b <= 255:
+                    return (color.r, color.g, color.b)
+                else:
+                    return None
         except Exception:
             pass
 
@@ -376,9 +404,10 @@ class EnclosureControlSkill(OVOSSkill):
         # Finally check if color is hex, like '#0000cc' or '0000cc'
         return _hex_to_rgb(color)
 
-    def handle_default_eyes(self, message):
-        if self.settings.get('current_eye_color'):
-            self.set_eye_color(self.settings['current_eye_color'], speak=False)
+    def handle_default_eyes(self):
+        LOG.info(self.settings.get('default_eye_color', "NONE"))
+        if self.settings.get('default_eye_color'):
+            self.set_eye_color(rgb=self.settings['default_eye_color'], speak=False)
 
     #####################################################################
     # Brightness intent interaction
@@ -408,8 +437,8 @@ class EnclosureControlSkill(OVOSSkill):
         try:
             # Handle "full", etc.
             name = normalize(brightness)
-            if name in self.brightness_dict:
-                return self.brightness_dict[name]
+            # if name in self.brightness_dict:
+            #     return self.brightness_dict[name]
 
             if '%' in brightness:
                 brightness = brightness.replace("%", "").strip()
