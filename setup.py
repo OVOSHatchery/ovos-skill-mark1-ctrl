@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from setuptools import setup
 from os.path import abspath, dirname, join, isfile, isdir
-from os import walk
+from os import walk, environ
 
 # Define package information
 SKILL_CLAZZ = "EnclosureControlSkill"  # Make sure it matches __init__.py class name
@@ -27,7 +27,7 @@ def get_requirements(requirements_filename: str = "requirements.txt"):
         with open(requirements_file, 'r', encoding='utf-8') as r:
             requirements = r.readlines()
         requirements = [r.strip() for r in requirements if r.strip() and not r.strip().startswith("#")]
-        if 'MYCROFT_LOOSE_REQUIREMENTS' in os.environ:
+        if 'MYCROFT_LOOSE_REQUIREMENTS' in environ:
             print('USING LOOSE REQUIREMENTS!')
             requirements = [r.replace('==', '>=').replace('~=', '>=') for r in requirements]
         return requirements
