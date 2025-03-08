@@ -1,13 +1,17 @@
 import random
 import time
+import datetime
+from pathlib import Path
 from ast import literal_eval as parse_tuple
 from ovos_color_parser import color_from_description, sRGBAColor
+from ovos_color_parser.matching import lookup_name
 from ovos_utils import create_daemon, classproperty
 from ovos_utils.log import LOG
 from ovos_utils.process_utils import RuntimeRequirements
-from ovos_workshop.decorators import intent_handler
+from ovos_workshop.decorators import intent_handler, resting_screen_handler
 from ovos_workshop.intents import IntentBuilder
 from ovos_workshop.skills import OVOSSkill
+from ovos_workshop.skills.api import SkillApi
 from ovos_bus_client.message import Message
 from ovos_i2c_detection import is_mark_1
 from threading import Thread
@@ -29,17 +33,40 @@ def _hex_to_rgb(_hex):
         return (r, g, b)
     except Exception:
         return None
+    
+def verify_mark_1():
+    # Check for output from ovos-i2csound
+    i2c = Path("/etc/OpenVoiceOS/i2c_platform")
+    error = ""
+    if i2c.exists():
+        with open(i2c, 'r') as f:
+            device = f.read().rstrip()
+            if not device == "MARK1":
+                LOG.error = f"ovos-i2cdetect detected device {device}."
+            else:
+                return True
+    # Check one more time just in case initialization was not complete
+    if not is_mark_1():
+        LOG.error("This device is not a Mark 1.")
+    else:
+        return True
+    return False
+                
 
 class EnclosureControlSkill(OVOSSkill):
     def __init__(self, *args, **kwargs):
-        if not is_mark_1():
-            LOG.error("This device is not a Mark 1.  It is suggested to uninstall this skill")
+        if not verify_mark_1():
             raise NotImplementedError("Purposeful exception because not on a Mark 1 device")
         super().__init__(*args, **kwargs)
+        # self.datetime_api = None
         self.thread = None
         self.playing = False
         self.animations = []
-        self.add_event('mycroft.eyes.default', self.handle_default_eyes)
+        if not self.settings.get("defaults"):
+            self._create_defaults()
+        self._load_defaults()
+        # callback_time = now_local() + datetime.timedelta(seconds=60)
+        # self.schedule_repeating_event(self.update_dt, callback_time, 10)
         self.add_event('mycroft.ready', self.handle_default_eyes)
 
     @classproperty
@@ -84,7 +111,6 @@ class EnclosureControlSkill(OVOSSkill):
         return [
             self.animate(2, 6, self.enclosure.eyes_look, "d"),
             self.animate(4, 6, self.enclosure.eyes_look, "u"),
-
         ]
 
     @property
@@ -92,9 +118,12 @@ class EnclosureControlSkill(OVOSSkill):
         return [
             self.animate(2, 6, self.enclosure.eyes_look, "l"),
             self.animate(4, 6, self.enclosure.eyes_look, "r"),
-
         ]
-
+        
+    # @property
+    # def datetime_skill_id(self):
+    #     return self.settings.get("datetime_skill", None)
+    
     @staticmethod
     def animate(t, often, func, *args):
         '''
@@ -113,10 +142,65 @@ class EnclosureControlSkill(OVOSSkill):
             "args": args
         }
 
-    @staticmethod
-    def _get_time(often, t):
-        return often - t % often
-
+#     @staticmethod
+#     def _get_time(often, t):
+#         return often - t % often
+#         
+#     def _load_skill_apis(self):
+#         """
+#         Loads date/time skill API
+#         """
+#         # Import Date Time Skill As Date Time Provider if configured (default LF)
+#         try:
+#             if not self.datetime_api and self.datetime_skill_id:
+#                 self.datetime_api = SkillApi.get(self.datetime_skill_id)
+#                 assert self.datetime_api.get_display_time is not None
+#                 assert self.datetime_api.get_display_date is not None
+#                 assert self.datetime_api.get_weekday is not None
+#                 assert self.datetime_api.get_year is not None
+#         except AssertionError as e:
+#             LOG.error(f"missing API method: {e}")
+#             self.datetime_api = None
+#         except Exception as e:
+#             LOG.error(f"Failed to import DateTime Skill: {e}")
+#             self.datetime_api = None
+            
+    def _load_defaults(self):
+        defaults = self.settings.get("defaults").get("default_eye_color")
+        (r, g, b) = defaults.get("rgb")
+        self.default_eye_color = sRGBAColor(r, g, b)
+        self.set_eye_color(self.default_eye_color)
+        # TODO: Eye position?
+        # TODO: Mouth position?
+        self.enclosure.mouth_reset()
+        
+    def _create_defaults(self):
+        LOG.info("creating defaults")
+        # Using "mycroft blue" as a default color
+        # TODO: figure out naming conventions
+        
+        # color = color_from_description("mycroft blue") This does not return the correct color
+        # https://github.com/OpenVoiceOS/ovos-color-parser/issues/26
+        # It works when getting the color from a hex code
+        color = sRGBAColor.from_hex_str("#22A7F0", name="Mycroft blue", description="blue")
+        
+        self.settings["defaults"] = {"default_eye_color": {"rgb": [color.r, color.g, color.b],
+                                     "name": color.name}}        
+        
+    # def update_dt(self):
+    #     """
+    #     Loads or updates date/time via the datetime_api.
+    #     """
+    #     if not self.datetime_api and self.datetime_skill_id:
+    #         LOG.debug("Requested update before datetime API loaded")
+    #         self._load_skill_apis()
+    #     if self.datetime_api:
+    #         try:
+    #             self._update_datetime_from_api()
+    #             return
+    #         except Exception as e:
+    #             LOG.exception(f"Skill API error: {e}")
+                
     def run(self):
         """
         animation thread while performing speedtest
@@ -222,16 +306,14 @@ class EnclosureControlSkill(OVOSSkill):
                     .require("narrow").require("eyes")
                     .optionally("enclosure"))
     def handle_narrow_eyes(self, message):
-        self.speak("this is my evil face")
+        # self.speak("this is my evil face")
         self.enclosure.eyes_narrow()
-        self.enclosure.eyes_color(255, 0, 0)
+        # self.enclosure.eyes_color(255, 0, 0)
 
     @intent_handler(IntentBuilder("EnclosureReset")
                     .require("reset").require("enclosure"))
     def handle_enclosure_reset(self, message):
         self.handle_default_eyes()
-        self.enclosure.eyes_reset()
-        self.enclosure.mouth_reset()
         self.speak("this was fun")
 
     @intent_handler(IntentBuilder("EnclosureMouthSmile")
@@ -266,15 +348,14 @@ class EnclosureControlSkill(OVOSSkill):
 
     #####################################################################
     # Color interactions
-    def set_eye_color(self, color=None, rgb=None, speak=True, make_default=False):
+    def set_eye_color(self, color, speak=True):#=None, rgb=None, speak=True):# name=None, speak=True):
         """ Change the eye color on the faceplate, update saved setting
         """
         if color is not None:
             color_rgb = self._parse_to_rgb(color)
             if color_rgb is not None:
-                (r, g, b) = color_rgb
-        elif rgb is not None:
-            (r, g, b) = rgb
+                (r, g, b) = (color_rgb.r, color_rgb.g, color_rgb.b)
+                name = color_rgb.name
         else:
             return  # no color provided!
 
@@ -283,9 +364,8 @@ class EnclosureControlSkill(OVOSSkill):
             if speak:
                 self.speak_dialog('set.color.success')
             # Update saved color
-            self.settings['current_eye_color'] = [r, g, b]
-            if make_default:
-                self.settings['default_eye_color'] = [r, g, b]
+            self.settings['current_eye_color']["rgb"] = [r, g, b]
+            self.settings['current_eye_color']["name"] = name
         except Exception:
             self.log.debug('Bad color code: ' + str(color))
             if speak:
@@ -318,12 +398,9 @@ class EnclosureControlSkill(OVOSSkill):
         if not b:
             return  # cancelled
 
-        custom_rgb = [r, g, b]
+        custom_rgb = sRGBAColor(r, g, b)
         
-        default = False
-        if self.ask_yesno('set.default.eye.color') == 'yes':
-            default = True
-        self.set_eye_color(rgb=custom_rgb, make_default=default)
+        self.set_eye_color(custom_rgb)
 
     @intent_handler('eye.color.intent')
     def handle_eye_color(self, message):
@@ -337,13 +414,42 @@ class EnclosureControlSkill(OVOSSkill):
         if color_str:
             match = color_from_description(color_str)
             if match is not None:
-                default = False
-                if self.ask_yesno('set.default.eye.color') == 'yes':
-                    default = True
-                self.set_eye_color(color=match, make_default=default)
+                self.set_eye_color(color=match)
             else:
                 self.speak_dialog('color.not.exist')
 
+    @intent_handler('default.eye.color.intent')
+    def handle_default_eye_color(self, message):
+        """ Callback to set the default eye color from list
+
+            Args:
+                message (dict): messagebus message from intent parser
+        """
+        LOG.info("setting the default eye color")
+        color_str = (message.data.get('color', None) or
+                     self.get_response('color.need'))
+        if color_str:
+            match = color_from_description(color_str)
+            if match is not None:
+                color_rgb = self._parse_to_rgb(match)
+                if color_rgb is not None:
+                    (r, g, b) = color_rgb.r, color_rgb.g, color_rgb.b
+                    self.settings["defaults"]["default_eye_color"] = [r, g, b]
+                    if self.settings.get("current_eye_color") != self.settings["defaults"]["default_eye_color"]:
+                        if self.ask_yesno('set.current.eye.color').lower() == "yes":
+                            LOG.info("said change color")
+                            self.set_eye_color(match)
+
+    @intent_handler('default.eye.color.current.intent')
+    def handle_default_eye_color_current(self, message):
+        """ Callback to set the default eye color from the current color
+
+            Args:
+                message (dict): messagebus message from intent parser
+        """
+        self.settings["defaults"]["default_eye_color"] = self.settings.get("current_eye_color")
+        self.speak("I set the default color")
+                            
     def _parse_to_rgb(self, color):
         """ Convert color descriptor to RGB
 
@@ -351,20 +457,19 @@ class EnclosureControlSkill(OVOSSkill):
         '(0,0,128)' to an RGB tuple.
 
         Args:
-            color (str): RGB, Hex, or color from color_dict
+            color (str): RGB, Hex, or color from color_from_description
         Returns:
             (r, g, b) (tuple): Tuple of rgb values (0-255) or None
         """
         if not color:
             return None
-
-        # # check if named color is valid
+        
+        # check if named color is valid
         try:
             if isinstance(color, sRGBAColor):
-                if 0 <= color.r <= 255 and 0 <= color.g <= 255 and 0 <= color.b <= 255:
-                    return (color.r, color.g, color.b)
-                else:
-                    return None
+                return color
+            else:
+                return None
         except Exception:
             pass
 
@@ -372,18 +477,42 @@ class EnclosureControlSkill(OVOSSkill):
         try:
             (r, g, b) = parse_tuple(color)
             if 0 <= r <= 255 and 0 <= g <= 255 and 0 <= b <= 255:
-                return (r, g, b)
+                return sRGBAColor(r, g, b)
             else:
                 return None
         except Exception:
             pass
 
         # Finally check if color is hex, like '#0000cc' or '0000cc'
-        return _hex_to_rgb(color)
+        try:
+            return sRGBAColor(_hex_to_rgb(color))
+        except Exception:
+            return None
+        
+        return None
 
     def handle_default_eyes(self):
-        if self.settings.get('default_eye_color'):
-            self.set_eye_color(rgb=self.settings['default_eye_color'], speak=False)
+        settings = self.settings.get("defaults")
+        if settings:
+            # Handle default eyes
+            if settings.get("default_eye_color"):
+                try:
+                    (r, g, b) = settings.get("rgb")
+                    name = settings.get("name", None)
+                    color = sRGBAColor(r, g, b, name=name)
+                    self.set_eye_color(color, speak=False)
+                except ValueError:
+                    self._create_defaults()
+                    self._load_defaults()
+            if settings.get("default_eye_position"):
+                LOG.info("Not implemented yet")
+            else:
+                self.enclosure.eyes_reset()
+            
+        else:
+            self._create_defaults()
+            self._load_defaults()
+        
 
     #####################################################################
     # Brightness intent interaction
